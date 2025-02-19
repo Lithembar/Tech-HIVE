@@ -60,11 +60,11 @@ button:hover {
 
 <script>
 class PaymentGateway {
-    // ... (Your existing PaymentGateway code) ...
+   
 }
 
 class ShoppingCart {
-    // ... (Your existing ShoppingCart code) ...
+   
 }
 
 function processPayment(paymentMethod) {
@@ -89,17 +89,15 @@ function processPayment(paymentMethod) {
             cvv: cvv
         };
     } else if (paymentMethod === 'apple_pay') {
-        // Collect Apple Pay specific information (e.g., from the Apple Pay API)
         paymentInfo = {
-            // Apple Pay data
+    
         };
-        alert("Apple Pay processing -  gather data using Apple Pay API"); // Placeholder
+        alert("Apple Pay processing -  gather data using Apple Pay API");
     } else if (paymentMethod === 'paypal') {
-        // Collect PayPal specific information (e.g., from the PayPal API)
         paymentInfo = {
-            // PayPal Data
+            
         };
-        alert("PayPal processing - gather data using PayPal API"); // Placeholder
+        alert("PayPal processing - gather data using PayPal API"); 
     }
 
 
