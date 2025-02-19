@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUMARA RGB MECHANICAL Gaming Keyboard</title>
+    <style>
+        body {
+            background-image: url("img/tech\ hive.png"); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: sans-serif;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .product-details {
+            margin-top: 15px;
+        }
+
+        .product-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+    </style>
+
+    <script>
+        function swapImages(el, image1, image2) {
+            if (el.src.endsWith(image1)) {
+                el.src = "img/" + image2;
+            } else {
+                el.src = "img/" + image1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="product-card">
+        <h1>KUMARA RGB Mechanical Gaming Keyboard</h1>
+
+        <img class="product-image" src="img/kamura2.jpg" alt="KUMARA RGB Mechanical Gaming" onclick="swapImages(this, 'kamura2.jpg', 'kamura3.jpg')">
+
+        <div class="product-details">
+            <p class="product-title">About this item</p>
+            <p class="product-description">
+                ✅ High-quality mechanical switches <br>
+                ✅ RGB full-color LED backlit keys <br>
+                ✅ Spill-proof design <br>
+                ✅ Durable and sturdy construction for lasting durability <br>
+                ✅ Ideal for gamers and typists who appreciate mechanical key switches
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with 💜 by TechHive | All rights reserved © 2025</p>
+    </footer>
+</body>
+</html>

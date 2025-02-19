@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GravaStar</title>
+    <style>
+        body {
+            background-image: url("img/tech\ hive.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: sans-serif;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px; 
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+
+        .product-image:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+        }
+
+        .product-details {
+            margin-top: 15px;
+        }
+
+        .product-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5); 
+            color: white;
+        }
+    </style>
+
+    <script>
+        function swapImages(el, image1, image2) {
+            if (el.src.endsWith(image1)) {
+                el.src = "img/" + image2;
+            } else {
+                el.src = "img/" + image1;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="product-card">
+        <img class="product-image" src="img/gravastar.jpg" alt="GravaStar" onclick="swapImages(this, 'gravastar.jpg', 'gravastar2.jpg')">
+        <div class="product-details">
+            <h2 class="product-title">GravaStar Keyboard and Mouse Combo</h2>
+            <p class="product-description">
+                • [Membrane Gaming Keyboard]: 87-key wired keyboard with double-shot keycaps, 3 color backlight, 25 anti-ghosting keys for simultaneous presses, F1-F12 multimedia keys, and durability tested through over 10 million clicks for long-lasting use.<br>
+                • [High-performance Wired Gaming Mouse]: Ambidextrous ergonomic design, 7 programmable buttons, 7 different RGB lighting modes, 1000HZ poll rate, DPI adjustable: 800/1200/2400/3200.<br>
+                • [Non-Slip Gaming Mouse Pad]: High density & ultra-smooth fabric surface, non-slip rubber base, durable stitched edge, water-resistant & easy to clean.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with 💜 by TechHive | All rights reserved © 2025</p>
+    </footer>
+
+</body>
+</html>

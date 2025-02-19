@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SHOPPING CART</title>
+
+
+<script>
+class PaymentGateway {
+    
+    process_payment(amount, card_details) {
+      
+      if (this._validate_card(card_details)) {
+          alert(`Payment of ${amount} processed successfully!`);
+          return true;
+      } else {
+          alert("Invalid card details.");
+          return false;
+      }
+  }
+
+  _validate_card(card_details) {
+    
+    if (card_details.card_number && card_details.expiry_month && card_details.expiry_year && card_details.cvv) {
+        return true;  
+    }
+    return false;
+}
+}
+
+class ShoppingCart {
+    constructor() {
+        this.items = [];
+    }
+
+    addItem(item, price) {
+        this.items.push({ item: item, price: price });
+    }
+
+    calculateTotal() {
+        return this.items.reduce((sum, item) => sum + item.price, 0); 
+    }
+
+    checkout(payment_gateway, card_details) {
+        const total = this.calculateTotal();
+        alert(`Total amount: ${total}`);
+        return payment_gateway.process_payment(total, card_details);
+    }
+}
+
+
+function processPayment() {
+    const gateway = new PaymentGateway();
+    const cart = new ShoppingCart();
+
+    cart.addItem("Product A", 20);
+    cart.addItem("Product B", 30);
+
+    const cardNumber = document.getElementById("card_number").value;
+    const expiryMonth = document.getElementById("expiry_month").value;
+    const expiryYear = document.getElementById("expiry_year").value;
+    const cvv = document.getElementById("cvv").value;
+
+    const cardInfo = {
+        card_number: cardNumber,
+        expiry_month: expiryMonth,
+        expiry_year: expiryYear,
+        cvv: cvv
+    };
+
+    if (cart.checkout(gateway, cardInfo)) {
+        alert("Order placed successfully!");
+    } else {
+        alert("Payment failed. Please try again.");
+    }
+}
+
+</script>
+</head>
+<body>
+
+<h1>Shopping Cart</h1>
+
+<p>Items in cart will be added through Javascript for this simplified example</p>
+
+<h2>Payment Information</h2>
+<form>
+    Card Number: <input type="text" id="card_number"><br>
+    Expiry Month: <input type="text" id="expiry_month"><br>
+    Expiry Year: <input type="text" id="expiry_year"><br>
+    CVV: <input type="text" id="cvv"><br>
+    <button type="button" onclick="processPayment()">Pay</button>
+</form>
+
+</body>
+</html>
