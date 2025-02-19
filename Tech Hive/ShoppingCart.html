@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SHOPPING CART</title>
+<style>
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #f0ad4e;
+    margin-bottom: 20px;
+}
+
+.payment-info {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #eee;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #f0ad4e;
+    color: #000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #d4952f;
+}
+</style>
+
+<script>
+class PaymentGateway {
+    // ... (Your existing PaymentGateway code) ...
+}
+
+class ShoppingCart {
+    // ... (Your existing ShoppingCart code) ...
+}
+
+function processPayment(paymentMethod) {
+    const gateway = new PaymentGateway();
+    const cart = new ShoppingCart();
+
+    cart.addItem("Product A", 20);
+    cart.addItem("Product B", 30);
+
+    let paymentInfo = {};
+
+    if (paymentMethod === 'card') {
+        const cardNumber = document.getElementById("card_number").value;
+        const expiryMonth = document.getElementById("expiry_month").value;
+        const expiryYear = document.getElementById("expiry_year").value;
+        const cvv = document.getElementById("cvv").value;
+
+        paymentInfo = {
+            card_number: cardNumber,
+            expiry_month: expiryMonth,
+            expiry_year: expiryYear,
+            cvv: cvv
+        };
+    } else if (paymentMethod === 'apple_pay') {
+        // Collect Apple Pay specific information (e.g., from the Apple Pay API)
+        paymentInfo = {
+            // Apple Pay data
+        };
+        alert("Apple Pay processing -  gather data using Apple Pay API"); // Placeholder
+    } else if (paymentMethod === 'paypal') {
+        // Collect PayPal specific information (e.g., from the PayPal API)
+        paymentInfo = {
+            // PayPal Data
+        };
+        alert("PayPal processing - gather data using PayPal API"); // Placeholder
+    }
+
+
+    if (cart.checkout(gateway, paymentInfo)) {
+        alert("Order placed successfully!");
+    } else {
+        alert("Payment failed. Please try again.");
+    }
+}
+
+</script>
+
+</head>
+<body>
+
+<h1>Shopping Cart</h1>
+
+<div class="payment-info">
+    <h2>Payment Information</h2>
+    <form>
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number"><br>
+        <label for="expiry_month">Expiry Month:</label>
+        <input type="text" id="expiry_month"><br>
+        <label for="expiry_year">Expiry Year:</label>
+        <input type="text" id="expiry_year"><br>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv"><br>
+        <button type="button" onclick="processPayment('card')">Pay with Card</button><br>
+        <button type="button" onclick="processPayment('apple_pay')">Pay with Apple Pay</button><br>
+        <button type="button" onclick="processPayment('paypal')">Pay with PayPal</button><br>
+    </form>
+</div>
+
+</body>
+</html>
